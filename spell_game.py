@@ -160,7 +160,9 @@ def game(db):
                         playsound('audio/' + w + '.mp3')
                         your_spelling = input('Try again: ')
                 try_count += 1
-                result = chek_spelling(w, your_spelling)                   
+                result = chek_spelling(w, your_spelling)
+                if result:
+                    w_p_hist[idx]['p_count'] += 1            
             else:
                 break
 
