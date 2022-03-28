@@ -19,7 +19,7 @@ def add_nw2db(db, nw_list):
 
 def write_db(db):
     timestr = time.strftime('%Y%m%d%H%M%S')
-    with open('db_bkp\db_' + timestr + '.json', 'w') as f:
+    with open('db_bkp/db_' + timestr + '.json', 'w') as f:
         json.dump(db, f)
     with open('db.json', 'w') as f:
         json.dump(db, f)
@@ -138,7 +138,7 @@ def first_try(w, w_p_hist, new_pidx, p_count):
         return result, your_spelling, idx, p_count
 
 
-def re_try(w, w_p_hist, try_count, idx, p_count, e_count, your_spelling):
+def re_try(w, w_p_hist, try_count, idx, p_count, e_count, your_spelling, db):
     w_p_hist[idx]['e_count'] += 1
     e_count += 1
     if try_count >= 3:
@@ -208,7 +208,7 @@ def game(db):
         else:
             try_count += 1
             result, p_count, e_count = re_try(
-                w, w_p_hist, try_count, idx, p_count, e_count, your_spelling)
+                w, w_p_hist, try_count, idx, p_count, e_count, your_spelling, db)
             if result == 'exit':
                 break
             elif result == True:
@@ -216,6 +216,6 @@ def game(db):
     end_game(db, p_count, e_count, new_pidx)
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     db = lod_db('db.json')
     game(db)
