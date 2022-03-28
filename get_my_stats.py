@@ -35,7 +35,7 @@ for w in db_dict['p_stat']:
             w_stat[f'my_spell_{idx+1}'] = e_word
         to_learn.append(w_stat)
 # Writre results to results.csv
-with open('results.csv', 'w') as csvfile:
+with open('results.csv', 'w', newline='') as csvfile:
     fieldnames = to_learn[most_diff_word_idx].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
