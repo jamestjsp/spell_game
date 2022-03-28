@@ -108,6 +108,7 @@ def end_game(db, p_count, e_count, new_pidx):
 
 
 def first_try(w, w_p_hist, new_pidx, p_count):
+    print('To listen agin type "la" and to show spelling type "sm".')
     your_spelling = input('input your word: ')
     if your_spelling.lower() != 'exit':
         while your_spelling.lower() == 'sm' or your_spelling.lower() == 'la':
